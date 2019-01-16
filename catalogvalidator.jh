@@ -1,0 +1,130 @@
+entity Environment {
+	name String,
+    url String,
+    user String,
+    pass String
+}
+
+entity Validation {
+	importValidationFile String,
+    ecmValidateFile String,
+    timestampMark String
+}
+
+entity Catalog {
+	name String,
+    fileName String,
+    createdDate Instant
+}
+
+entity IND {
+	id String,
+	name String,
+    desc String,
+    writeToLLD Boolean,
+    writeTranslation Boolean
+}
+
+entity TaxObject {
+	taxPercent String,
+    incInPrice String
+}
+
+entity TaxModel {
+
+}
+
+entity BaseItem {
+	basename String,
+    baseType String,
+    itemName String,
+    itemType String,
+    itemSubtype String
+}
+
+entity Hierarchy{
+	code String,
+    name String,
+    type String,
+    parent String
+}
+
+entity InfoModel{
+	code String,
+    name String,
+    status String,
+    desc String,
+    isDynam String,
+    dbTableName String,
+    expirationalInterval String,
+    type String,
+    subtype String
+}
+
+entity InfoModelAttr{
+	attrCode String,
+    charType String,
+    name String,
+    isNull String,
+    isSearch String,
+    descending String,
+    type String,
+    assoctype String,
+    seq String
+}
+
+entity Item {
+	name String,
+    index Integer,
+    toDelete Boolean,
+    unique Boolean
+}
+
+entity SimpleItem{
+	id String,
+    startPos Integer,
+    endPos Integer
+}
+
+entity Characteristic {
+	charID String,
+    charName String,
+    charType String,
+    defaultValue String,
+    charClassificationType String,
+    sequence String,
+    assocType String,
+    promoted String,
+    sourceItem String,
+    charDefaultRule String,
+    mapto String
+}
+
+entity Attribute {
+	name String,
+    value String
+}
+
+relationship OneToMany {
+	Catalog{taxModels} to TaxModel,
+    TaxModel{relatedTaxModel} to TaxModel,
+    Catalog{baseItems} to BaseItem,
+    Hierarchy{subHierar} to Hierarchy,
+    Catalog{hierarchies} to Hierarchy,
+    InfoModel{attributes} to InfoModelAttr,
+    Catalog{infoModels} to InfoModel,
+    Item{characteristics} to Characteristic,
+    Item{attributes} to Attribute,
+}
+
+relationship OneToOne {
+	TaxModel{oIND} to IND,
+    TaxModel{relatedTaxObject} to TaxObject,
+    Validation{environment(name)} to Environment,
+    Validation{catalog(name)} to Catalog,
+    Item{simpleItem} to SimpleItem,
+    Item{ind} to IND,
+}
+
+paginate * with infinite-scroll
+filter *
