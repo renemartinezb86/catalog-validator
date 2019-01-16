@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="simpleItem">
+            <h2><span jhiTranslate="catalogValidatorApp.simpleItem.detail.title">Simple Item</span> {{simpleItem.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="catalogValidatorApp.simpleItem.startPos">Start Pos</span></dt>
+                <dd>
+                    <span>{{simpleItem.startPos}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.simpleItem.endPos">End Pos</span></dt>
+                <dd>
+                    <span>{{simpleItem.endPos}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/simple-item', simpleItem.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

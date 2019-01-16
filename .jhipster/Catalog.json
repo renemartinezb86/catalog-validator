@@ -1,0 +1,52 @@
+{
+    "name": "Catalog",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fileName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "taxModels",
+            "otherEntityName": "taxModel",
+            "otherEntityRelationshipName": "catalog"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "baseItems",
+            "otherEntityName": "baseItem",
+            "otherEntityRelationshipName": "catalog"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "hierarchies",
+            "otherEntityName": "hierarchy",
+            "otherEntityRelationshipName": "catalog"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "infoModels",
+            "otherEntityName": "infoModel",
+            "otherEntityRelationshipName": "catalog"
+        }
+    ],
+    "changelogDate": "20190116203648",
+    "entityTableName": "catalog",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

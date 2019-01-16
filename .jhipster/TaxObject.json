@@ -1,0 +1,23 @@
+{
+    "name": "TaxObject",
+    "fields": [
+        {
+            "fieldName": "taxPercent",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "incInPrice",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190116203650",
+    "entityTableName": "tax_object",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

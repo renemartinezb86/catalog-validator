@@ -8,6 +8,20 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entities",
+                "environment": "Environment",
+                "validation": "Validation",
+                "catalog": "Catalog",
+                "ind": "IND",
+                "taxObject": "Tax Object",
+                "taxModel": "Tax Model",
+                "baseItem": "Base Item",
+                "hierarchy": "Hierarchy",
+                "infoModel": "Info Model",
+                "infoModelAttr": "Info Model Attr",
+                "item": "Item",
+                "simpleItem": "Simple Item",
+                "characteristic": "Characteristic",
+                "attribute": "Attribute",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

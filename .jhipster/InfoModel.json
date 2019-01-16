@@ -1,0 +1,64 @@
+{
+    "name": "InfoModel",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "desc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isDynam",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dbTableName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "expirationalInterval",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "subtype",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "catalog",
+            "otherEntityName": "catalog",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "attributes",
+            "otherEntityName": "infoModelAttr",
+            "otherEntityRelationshipName": "infoModel"
+        }
+    ],
+    "changelogDate": "20190116203654",
+    "entityTableName": "info_model",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

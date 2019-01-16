@@ -1,0 +1,23 @@
+{
+    "catalogValidatorApp": {
+        "simpleItem": {
+            "home": {
+                "title": "Simple Items",
+                "createLabel": "Create a new Simple Item",
+                "createOrEditLabel": "Create or edit a Simple Item",
+                "search": "Search for Simple Item"
+            },
+            "created": "A new Simple Item is created with identifier {{ param }}",
+            "updated": "A Simple Item is updated with identifier {{ param }}",
+            "deleted": "A Simple Item is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Simple Item {{ id }}?"
+            },
+            "detail": {
+                "title": "Simple Item"
+            },
+            "startPos": "Start Pos",
+            "endPos": "End Pos"
+        }
+    }
+}

@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-characteristic-heading" jhiTranslate="catalogValidatorApp.characteristic.home.createOrEditLabel">Create or edit a Characteristic</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!characteristic.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="characteristic.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.characteristic.charID" for="field_charID">Char ID</label>
+                    <input type="text" class="form-control" name="charID" id="field_charID"
+                        [(ngModel)]="characteristic.charID" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.characteristic.charName" for="field_charName">Char Name</label>
+                    <input type="text" class="form-control" name="charName" id="field_charName"
+                        [(ngModel)]="characteristic.charName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.characteristic.charType" for="field_charType">Char Type</label>
+                    <input type="text" class="form-control" name="charType" id="field_charType"
+                        [(ngModel)]="characteristic.charType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.characteristic.defaultValue" for="field_defaultValue">Default Value</label>
+                    <input type="text" class="form-control" name="defaultValue" id="field_defaultValue"
+                        [(ngModel)]="characteristic.defaultValue" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.characteristic.charClassificationType" for="field_charClassificationType">Char Classification Type</label>
+                    <input type="text" class="form-control" name="charClassificationType" id="field_charClassificationType"
+                        [(ngModel)]="characteristic.charClassificationType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.characteristic.sequence" for="field_sequence">Sequence</label>
+                    <input type="text" class="form-control" name="sequence" id="field_sequence"
+                        [(ngModel)]="characteristic.sequence" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.characteristic.assocType" for="field_assocType">Assoc Type</label>
+                    <input type="text" class="form-control" name="assocType" id="field_assocType"
+                        [(ngModel)]="characteristic.assocType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.characteristic.promoted" for="field_promoted">Promoted</label>
+                    <input type="text" class="form-control" name="promoted" id="field_promoted"
+                        [(ngModel)]="characteristic.promoted" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.characteristic.sourceItem" for="field_sourceItem">Source Item</label>
+                    <input type="text" class="form-control" name="sourceItem" id="field_sourceItem"
+                        [(ngModel)]="characteristic.sourceItem" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.characteristic.charDefaultRule" for="field_charDefaultRule">Char Default Rule</label>
+                    <input type="text" class="form-control" name="charDefaultRule" id="field_charDefaultRule"
+                        [(ngModel)]="characteristic.charDefaultRule" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.characteristic.mapto" for="field_mapto">Mapto</label>
+                    <input type="text" class="form-control" name="mapto" id="field_mapto"
+                        [(ngModel)]="characteristic.mapto" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.characteristic.item" for="field_item">Item</label>
+                    <select class="form-control" id="field_item" name="item" [(ngModel)]="characteristic.item" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="itemOption.id === characteristic.item?.id ? characteristic.item : itemOption" *ngFor="let itemOption of items; trackBy: trackItemById">{{itemOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

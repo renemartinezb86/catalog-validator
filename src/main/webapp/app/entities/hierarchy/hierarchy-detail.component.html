@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="hierarchy">
+            <h2><span jhiTranslate="catalogValidatorApp.hierarchy.detail.title">Hierarchy</span> {{hierarchy.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="catalogValidatorApp.hierarchy.code">Code</span></dt>
+                <dd>
+                    <span>{{hierarchy.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.hierarchy.name">Name</span></dt>
+                <dd>
+                    <span>{{hierarchy.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.hierarchy.type">Type</span></dt>
+                <dd>
+                    <span>{{hierarchy.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.hierarchy.parent">Parent</span></dt>
+                <dd>
+                    <span>{{hierarchy.parent}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.hierarchy.catalog">Catalog</span></dt>
+                <dd>
+                    <div *ngIf="hierarchy.catalog">
+                        <a [routerLink]="['/catalog', hierarchy.catalog?.id, 'view']">{{hierarchy.catalog?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.hierarchy.hierarchy">Hierarchy</span></dt>
+                <dd>
+                    <div *ngIf="hierarchy.hierarchy">
+                        <a [routerLink]="['/hierarchy', hierarchy.hierarchy?.id, 'view']">{{hierarchy.hierarchy?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/hierarchy', hierarchy.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

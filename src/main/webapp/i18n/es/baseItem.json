@@ -1,0 +1,27 @@
+{
+    "catalogValidatorApp": {
+        "baseItem": {
+            "home": {
+                "title": "Base Items",
+                "createLabel": "Crear nuevo Base Item",
+                "createOrEditLabel": "Crear o editar Base Item",
+                "search": "Search for Base Item"
+            },
+            "created": "Un nuevo Base Item ha sido creado con el identificador {{ param }}",
+            "updated": "Un Base Item ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Base Item ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Base Item {{ id }}?"
+            },
+            "detail": {
+                "title": "Base Item"
+            },
+            "basename": "Basename",
+            "baseType": "Base Type",
+            "itemName": "Item Name",
+            "itemType": "Item Type",
+            "itemSubtype": "Item Subtype",
+            "catalog": "Catalog"
+        }
+    }
+}

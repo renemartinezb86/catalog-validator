@@ -1,0 +1,42 @@
+{
+    "name": "BaseItem",
+    "fields": [
+        {
+            "fieldName": "basename",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "baseType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "itemName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "itemType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "itemSubtype",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "catalog",
+            "otherEntityName": "catalog",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190116203652",
+    "entityTableName": "base_item",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,58 @@
+{
+    "name": "InfoModelAttr",
+    "fields": [
+        {
+            "fieldName": "attrCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "charType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isNull",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isSearch",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descending",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "assoctype",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "seq",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "infoModel",
+            "otherEntityName": "infoModel",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190116203655",
+    "entityTableName": "info_model_attr",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

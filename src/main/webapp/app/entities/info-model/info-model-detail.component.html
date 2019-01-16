@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="infoModel">
+            <h2><span jhiTranslate="catalogValidatorApp.infoModel.detail.title">Info Model</span> {{infoModel.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="catalogValidatorApp.infoModel.code">Code</span></dt>
+                <dd>
+                    <span>{{infoModel.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.infoModel.name">Name</span></dt>
+                <dd>
+                    <span>{{infoModel.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.infoModel.status">Status</span></dt>
+                <dd>
+                    <span>{{infoModel.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.infoModel.desc">Desc</span></dt>
+                <dd>
+                    <span>{{infoModel.desc}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.infoModel.isDynam">Is Dynam</span></dt>
+                <dd>
+                    <span>{{infoModel.isDynam}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.infoModel.dbTableName">Db Table Name</span></dt>
+                <dd>
+                    <span>{{infoModel.dbTableName}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.infoModel.expirationalInterval">Expirational Interval</span></dt>
+                <dd>
+                    <span>{{infoModel.expirationalInterval}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.infoModel.type">Type</span></dt>
+                <dd>
+                    <span>{{infoModel.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.infoModel.subtype">Subtype</span></dt>
+                <dd>
+                    <span>{{infoModel.subtype}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.infoModel.catalog">Catalog</span></dt>
+                <dd>
+                    <div *ngIf="infoModel.catalog">
+                        <a [routerLink]="['/catalog', infoModel.catalog?.id, 'view']">{{infoModel.catalog?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/info-model', infoModel.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

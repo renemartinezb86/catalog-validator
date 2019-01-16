@@ -1,0 +1,60 @@
+{
+    "name": "Item",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "index",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "toDelete",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "unique",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "simpleItem",
+            "otherEntityName": "simpleItem",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "item"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "ind",
+            "otherEntityName": "iND",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "item"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "characteristics",
+            "otherEntityName": "characteristic",
+            "otherEntityRelationshipName": "item"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "attributes",
+            "otherEntityName": "attribute",
+            "otherEntityRelationshipName": "item"
+        }
+    ],
+    "changelogDate": "20190116203656",
+    "entityTableName": "item",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

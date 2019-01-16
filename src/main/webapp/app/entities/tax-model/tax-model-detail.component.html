@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="taxModel">
+            <h2><span jhiTranslate="catalogValidatorApp.taxModel.detail.title">Tax Model</span> {{taxModel.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="catalogValidatorApp.taxModel.catalog">Catalog</span></dt>
+                <dd>
+                    <div *ngIf="taxModel.catalog">
+                        <a [routerLink]="['/catalog', taxModel.catalog?.id, 'view']">{{taxModel.catalog?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.taxModel.oIND">O IND</span></dt>
+                <dd>
+                    <div *ngIf="taxModel.oIND">
+                        <a [routerLink]="['/ind', taxModel.oIND?.id, 'view']">{{taxModel.oIND?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.taxModel.relatedTaxObject">Related Tax Object</span></dt>
+                <dd>
+                    <div *ngIf="taxModel.relatedTaxObject">
+                        <a [routerLink]="['/tax-object', taxModel.relatedTaxObject?.id, 'view']">{{taxModel.relatedTaxObject?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.taxModel.taxModel">Tax Model</span></dt>
+                <dd>
+                    <div *ngIf="taxModel.taxModel">
+                        <a [routerLink]="['/tax-model', taxModel.taxModel?.id, 'view']">{{taxModel.taxModel?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tax-model', taxModel.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

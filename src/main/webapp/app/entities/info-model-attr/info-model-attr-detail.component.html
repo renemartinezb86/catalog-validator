@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="infoModelAttr">
+            <h2><span jhiTranslate="catalogValidatorApp.infoModelAttr.detail.title">Info Model Attr</span> {{infoModelAttr.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="catalogValidatorApp.infoModelAttr.attrCode">Attr Code</span></dt>
+                <dd>
+                    <span>{{infoModelAttr.attrCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.infoModelAttr.charType">Char Type</span></dt>
+                <dd>
+                    <span>{{infoModelAttr.charType}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.infoModelAttr.name">Name</span></dt>
+                <dd>
+                    <span>{{infoModelAttr.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.infoModelAttr.isNull">Is Null</span></dt>
+                <dd>
+                    <span>{{infoModelAttr.isNull}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.infoModelAttr.isSearch">Is Search</span></dt>
+                <dd>
+                    <span>{{infoModelAttr.isSearch}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.infoModelAttr.descending">Descending</span></dt>
+                <dd>
+                    <span>{{infoModelAttr.descending}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.infoModelAttr.type">Type</span></dt>
+                <dd>
+                    <span>{{infoModelAttr.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.infoModelAttr.assoctype">Assoctype</span></dt>
+                <dd>
+                    <span>{{infoModelAttr.assoctype}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.infoModelAttr.seq">Seq</span></dt>
+                <dd>
+                    <span>{{infoModelAttr.seq}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.infoModelAttr.infoModel">Info Model</span></dt>
+                <dd>
+                    <div *ngIf="infoModelAttr.infoModel">
+                        <a [routerLink]="['/info-model', infoModelAttr.infoModel?.id, 'view']">{{infoModelAttr.infoModel?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/info-model-attr', infoModelAttr.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

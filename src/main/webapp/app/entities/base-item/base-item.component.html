@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="catalogValidatorApp.baseItem.home.title">Base Items</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-base-item" [routerLink]="['/base-item/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="catalogValidatorApp.baseItem.home.createLabel">
+            Create new Base Item
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'catalogValidatorApp.baseItem.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="baseItems">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="basename"><span jhiTranslate="catalogValidatorApp.baseItem.basename">Basename</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="baseType"><span jhiTranslate="catalogValidatorApp.baseItem.baseType">Base Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="itemName"><span jhiTranslate="catalogValidatorApp.baseItem.itemName">Item Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="itemType"><span jhiTranslate="catalogValidatorApp.baseItem.itemType">Item Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="itemSubtype"><span jhiTranslate="catalogValidatorApp.baseItem.itemSubtype">Item Subtype</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="catalog.id"><span jhiTranslate="catalogValidatorApp.baseItem.catalog">Catalog</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let baseItem of baseItems ;trackBy: trackId">
+                <td><a [routerLink]="['/base-item', baseItem.id, 'view' ]">{{baseItem.id}}</a></td>
+                <td>{{baseItem.basename}}</td>
+                <td>{{baseItem.baseType}}</td>
+                <td>{{baseItem.itemName}}</td>
+                <td>{{baseItem.itemType}}</td>
+                <td>{{baseItem.itemSubtype}}</td>
+                <td>
+                    <div *ngIf="baseItem.catalog">
+                        <a [routerLink]="['../catalog', baseItem.catalog?.id, 'view' ]" >{{baseItem.catalog?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/base-item', baseItem.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/base-item', baseItem.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'base-item/'+ baseItem.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
