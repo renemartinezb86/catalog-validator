@@ -1,0 +1,49 @@
+{
+    "name": "TaxModel",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipName": "catalog",
+            "otherEntityName": "catalog",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "oIND",
+            "otherEntityName": "iND",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "taxModel"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "relatedTaxObject",
+            "otherEntityName": "taxObject",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "taxModel"
+        },
+        {
+            "relationshipName": "taxModel",
+            "otherEntityName": "taxModel",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "relatedTaxModel",
+            "otherEntityName": "taxModel",
+            "otherEntityRelationshipName": "taxModel"
+        }
+    ],
+    "changelogDate": "20190116203651",
+    "entityTableName": "tax_model",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

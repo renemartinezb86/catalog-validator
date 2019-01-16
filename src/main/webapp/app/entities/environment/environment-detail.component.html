@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="environment">
+            <h2><span jhiTranslate="catalogValidatorApp.environment.detail.title">Environment</span> {{environment.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="catalogValidatorApp.environment.name">Name</span></dt>
+                <dd>
+                    <span>{{environment.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.environment.url">Url</span></dt>
+                <dd>
+                    <span>{{environment.url}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.environment.user">User</span></dt>
+                <dd>
+                    <span>{{environment.user}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.environment.pass">Pass</span></dt>
+                <dd>
+                    <span>{{environment.pass}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/environment', environment.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

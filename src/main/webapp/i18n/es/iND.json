@@ -1,0 +1,25 @@
+{
+    "catalogValidatorApp": {
+        "iND": {
+            "home": {
+                "title": "INDS",
+                "createLabel": "Crear nuevo IND",
+                "createOrEditLabel": "Crear o editar IND",
+                "search": "Search for IND"
+            },
+            "created": "Un nuevo IND ha sido creado con el identificador {{ param }}",
+            "updated": "Un IND ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un IND ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar IND {{ id }}?"
+            },
+            "detail": {
+                "title": "IND"
+            },
+            "name": "Name",
+            "desc": "Desc",
+            "writeToLLD": "Write To LLD",
+            "writeTranslation": "Write Translation"
+        }
+    }
+}

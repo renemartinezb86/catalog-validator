@@ -1,0 +1,23 @@
+{
+    "catalogValidatorApp": {
+        "taxObject": {
+            "home": {
+                "title": "Tax Objects",
+                "createLabel": "Crear nuevo Tax Object",
+                "createOrEditLabel": "Crear o editar Tax Object",
+                "search": "Search for Tax Object"
+            },
+            "created": "Un nuevo Tax Object ha sido creado con el identificador {{ param }}",
+            "updated": "Un Tax Object ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Tax Object ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Tax Object {{ id }}?"
+            },
+            "detail": {
+                "title": "Tax Object"
+            },
+            "taxPercent": "Tax Percent",
+            "incInPrice": "Inc In Price"
+        }
+    }
+}

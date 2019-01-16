@@ -1,0 +1,32 @@
+{
+    "catalogValidatorApp": {
+        "infoModel": {
+            "home": {
+                "title": "Info Models",
+                "createLabel": "Create a new Info Model",
+                "createOrEditLabel": "Create or edit a Info Model",
+                "search": "Search for Info Model"
+            },
+            "created": "A new Info Model is created with identifier {{ param }}",
+            "updated": "A Info Model is updated with identifier {{ param }}",
+            "deleted": "A Info Model is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Info Model {{ id }}?"
+            },
+            "detail": {
+                "title": "Info Model"
+            },
+            "code": "Code",
+            "name": "Name",
+            "status": "Status",
+            "desc": "Desc",
+            "isDynam": "Is Dynam",
+            "dbTableName": "Db Table Name",
+            "expirationalInterval": "Expirational Interval",
+            "type": "Type",
+            "subtype": "Subtype",
+            "catalog": "Catalog",
+            "attributes": "Attributes"
+        }
+    }
+}

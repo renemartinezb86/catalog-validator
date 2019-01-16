@@ -1,0 +1,33 @@
+{
+    "catalogValidatorApp": {
+        "characteristic": {
+            "home": {
+                "title": "Characteristics",
+                "createLabel": "Crear nuevo Characteristic",
+                "createOrEditLabel": "Crear o editar Characteristic",
+                "search": "Search for Characteristic"
+            },
+            "created": "Un nuevo Characteristic ha sido creado con el identificador {{ param }}",
+            "updated": "Un Characteristic ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Characteristic ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Characteristic {{ id }}?"
+            },
+            "detail": {
+                "title": "Characteristic"
+            },
+            "charID": "Char ID",
+            "charName": "Char Name",
+            "charType": "Char Type",
+            "defaultValue": "Default Value",
+            "charClassificationType": "Char Classification Type",
+            "sequence": "Sequence",
+            "assocType": "Assoc Type",
+            "promoted": "Promoted",
+            "sourceItem": "Source Item",
+            "charDefaultRule": "Char Default Rule",
+            "mapto": "Mapto",
+            "item": "Item"
+        }
+    }
+}

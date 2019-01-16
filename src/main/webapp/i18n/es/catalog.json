@@ -1,0 +1,28 @@
+{
+    "catalogValidatorApp": {
+        "catalog": {
+            "home": {
+                "title": "Catalogs",
+                "createLabel": "Crear nuevo Catalog",
+                "createOrEditLabel": "Crear o editar Catalog",
+                "search": "Search for Catalog"
+            },
+            "created": "Un nuevo Catalog ha sido creado con el identificador {{ param }}",
+            "updated": "Un Catalog ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Catalog ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Catalog {{ id }}?"
+            },
+            "detail": {
+                "title": "Catalog"
+            },
+            "name": "Name",
+            "fileName": "File Name",
+            "createdDate": "Created Date",
+            "taxModels": "Tax Models",
+            "baseItems": "Base Items",
+            "hierarchies": "Hierarchies",
+            "infoModels": "Info Models"
+        }
+    }
+}

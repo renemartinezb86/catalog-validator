@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-hierarchy-heading" jhiTranslate="catalogValidatorApp.hierarchy.home.createOrEditLabel">Create or edit a Hierarchy</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!hierarchy.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="hierarchy.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.hierarchy.code" for="field_code">Code</label>
+                    <input type="text" class="form-control" name="code" id="field_code"
+                        [(ngModel)]="hierarchy.code" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.hierarchy.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="hierarchy.name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.hierarchy.type" for="field_type">Type</label>
+                    <input type="text" class="form-control" name="type" id="field_type"
+                        [(ngModel)]="hierarchy.type" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.hierarchy.parent" for="field_parent">Parent</label>
+                    <input type="text" class="form-control" name="parent" id="field_parent"
+                        [(ngModel)]="hierarchy.parent" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.hierarchy.catalog" for="field_catalog">Catalog</label>
+                    <select class="form-control" id="field_catalog" name="catalog" [(ngModel)]="hierarchy.catalog" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="catalogOption.id === hierarchy.catalog?.id ? hierarchy.catalog : catalogOption" *ngFor="let catalogOption of catalogs; trackBy: trackCatalogById">{{catalogOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.hierarchy.hierarchy" for="field_hierarchy">Hierarchy</label>
+                    <select class="form-control" id="field_hierarchy" name="hierarchy" [(ngModel)]="hierarchy.hierarchy" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="hierarchyOption.id === hierarchy.hierarchy?.id ? hierarchy.hierarchy : hierarchyOption" *ngFor="let hierarchyOption of hierarchies; trackBy: trackHierarchyById">{{hierarchyOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

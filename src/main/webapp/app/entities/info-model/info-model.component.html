@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="catalogValidatorApp.infoModel.home.title">Info Models</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-info-model" [routerLink]="['/info-model/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="catalogValidatorApp.infoModel.home.createLabel">
+            Create new Info Model
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'catalogValidatorApp.infoModel.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="infoModels">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="code"><span jhiTranslate="catalogValidatorApp.infoModel.code">Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="name"><span jhiTranslate="catalogValidatorApp.infoModel.name">Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="status"><span jhiTranslate="catalogValidatorApp.infoModel.status">Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="desc"><span jhiTranslate="catalogValidatorApp.infoModel.desc">Desc</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="isDynam"><span jhiTranslate="catalogValidatorApp.infoModel.isDynam">Is Dynam</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dbTableName"><span jhiTranslate="catalogValidatorApp.infoModel.dbTableName">Db Table Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="expirationalInterval"><span jhiTranslate="catalogValidatorApp.infoModel.expirationalInterval">Expirational Interval</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="type"><span jhiTranslate="catalogValidatorApp.infoModel.type">Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="subtype"><span jhiTranslate="catalogValidatorApp.infoModel.subtype">Subtype</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="catalog.id"><span jhiTranslate="catalogValidatorApp.infoModel.catalog">Catalog</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let infoModel of infoModels ;trackBy: trackId">
+                <td><a [routerLink]="['/info-model', infoModel.id, 'view' ]">{{infoModel.id}}</a></td>
+                <td>{{infoModel.code}}</td>
+                <td>{{infoModel.name}}</td>
+                <td>{{infoModel.status}}</td>
+                <td>{{infoModel.desc}}</td>
+                <td>{{infoModel.isDynam}}</td>
+                <td>{{infoModel.dbTableName}}</td>
+                <td>{{infoModel.expirationalInterval}}</td>
+                <td>{{infoModel.type}}</td>
+                <td>{{infoModel.subtype}}</td>
+                <td>
+                    <div *ngIf="infoModel.catalog">
+                        <a [routerLink]="['../catalog', infoModel.catalog?.id, 'view' ]" >{{infoModel.catalog?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/info-model', infoModel.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/info-model', infoModel.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'info-model/'+ infoModel.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

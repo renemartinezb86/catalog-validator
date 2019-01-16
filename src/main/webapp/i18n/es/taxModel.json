@@ -1,0 +1,26 @@
+{
+    "catalogValidatorApp": {
+        "taxModel": {
+            "home": {
+                "title": "Tax Models",
+                "createLabel": "Crear nuevo Tax Model",
+                "createOrEditLabel": "Crear o editar Tax Model",
+                "search": "Search for Tax Model"
+            },
+            "created": "Un nuevo Tax Model ha sido creado con el identificador {{ param }}",
+            "updated": "Un Tax Model ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Tax Model ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Tax Model {{ id }}?"
+            },
+            "detail": {
+                "title": "Tax Model"
+            },
+            "catalog": "Catalog",
+            "oIND": "O IND",
+            "relatedTaxObject": "Related Tax Object",
+            "taxModel": "Tax Model",
+            "relatedTaxModel": "Related Tax Model"
+        }
+    }
+}

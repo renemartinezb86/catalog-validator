@@ -1,0 +1,23 @@
+{
+    "name": "SimpleItem",
+    "fields": [
+        {
+            "fieldName": "startPos",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "endPos",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190116203657",
+    "entityTableName": "simple_item",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

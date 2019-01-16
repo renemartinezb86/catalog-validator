@@ -1,0 +1,31 @@
+{
+    "name": "IND",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "desc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "writeToLLD",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "writeTranslation",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190116203649",
+    "entityTableName": "ind",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-info-model-attr-heading" jhiTranslate="catalogValidatorApp.infoModelAttr.home.createOrEditLabel">Create or edit a Info Model Attr</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!infoModelAttr.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="infoModelAttr.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.infoModelAttr.attrCode" for="field_attrCode">Attr Code</label>
+                    <input type="text" class="form-control" name="attrCode" id="field_attrCode"
+                        [(ngModel)]="infoModelAttr.attrCode" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.infoModelAttr.charType" for="field_charType">Char Type</label>
+                    <input type="text" class="form-control" name="charType" id="field_charType"
+                        [(ngModel)]="infoModelAttr.charType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.infoModelAttr.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="infoModelAttr.name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.infoModelAttr.isNull" for="field_isNull">Is Null</label>
+                    <input type="text" class="form-control" name="isNull" id="field_isNull"
+                        [(ngModel)]="infoModelAttr.isNull" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.infoModelAttr.isSearch" for="field_isSearch">Is Search</label>
+                    <input type="text" class="form-control" name="isSearch" id="field_isSearch"
+                        [(ngModel)]="infoModelAttr.isSearch" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.infoModelAttr.descending" for="field_descending">Descending</label>
+                    <input type="text" class="form-control" name="descending" id="field_descending"
+                        [(ngModel)]="infoModelAttr.descending" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.infoModelAttr.type" for="field_type">Type</label>
+                    <input type="text" class="form-control" name="type" id="field_type"
+                        [(ngModel)]="infoModelAttr.type" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.infoModelAttr.assoctype" for="field_assoctype">Assoctype</label>
+                    <input type="text" class="form-control" name="assoctype" id="field_assoctype"
+                        [(ngModel)]="infoModelAttr.assoctype" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.infoModelAttr.seq" for="field_seq">Seq</label>
+                    <input type="text" class="form-control" name="seq" id="field_seq"
+                        [(ngModel)]="infoModelAttr.seq" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="catalogValidatorApp.infoModelAttr.infoModel" for="field_infoModel">Info Model</label>
+                    <select class="form-control" id="field_infoModel" name="infoModel" [(ngModel)]="infoModelAttr.infoModel" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="infoModelOption.id === infoModelAttr.infoModel?.id ? infoModelAttr.infoModel : infoModelOption" *ngFor="let infoModelOption of infomodels; trackBy: trackInfoModelById">{{infoModelOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+{
+    "name": "Validation",
+    "fields": [
+        {
+            "fieldName": "importValidationFile",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ecmValidateFile",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "timestampMark",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "environment",
+            "otherEntityName": "environment",
+            "otherEntityField": "name",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "validation"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "catalog",
+            "otherEntityName": "catalog",
+            "otherEntityField": "name",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "validation"
+        }
+    ],
+    "changelogDate": "20190116203647",
+    "entityTableName": "validation",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

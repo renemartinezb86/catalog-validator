@@ -1,0 +1,26 @@
+{
+    "catalogValidatorApp": {
+        "validation": {
+            "home": {
+                "title": "Validations",
+                "createLabel": "Crear nuevo Validation",
+                "createOrEditLabel": "Crear o editar Validation",
+                "search": "Search for Validation"
+            },
+            "created": "Un nuevo Validation ha sido creado con el identificador {{ param }}",
+            "updated": "Un Validation ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Validation ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Validation {{ id }}?"
+            },
+            "detail": {
+                "title": "Validation"
+            },
+            "importValidationFile": "Import Validation File",
+            "ecmValidateFile": "Ecm Validate File",
+            "timestampMark": "Timestamp Mark",
+            "environment": "Environment",
+            "catalog": "Catalog"
+        }
+    }
+}

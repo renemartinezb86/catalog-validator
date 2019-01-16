@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="catalogValidatorApp.taxModel.home.title">Tax Models</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tax-model" [routerLink]="['/tax-model/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="catalogValidatorApp.taxModel.home.createLabel">
+            Create new Tax Model
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'catalogValidatorApp.taxModel.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="taxModels">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="catalog.id"><span jhiTranslate="catalogValidatorApp.taxModel.catalog">Catalog</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="oIND.id"><span jhiTranslate="catalogValidatorApp.taxModel.oIND">O IND</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="relatedTaxObject.id"><span jhiTranslate="catalogValidatorApp.taxModel.relatedTaxObject">Related Tax Object</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="taxModel.id"><span jhiTranslate="catalogValidatorApp.taxModel.taxModel">Tax Model</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let taxModel of taxModels ;trackBy: trackId">
+                <td><a [routerLink]="['/tax-model', taxModel.id, 'view' ]">{{taxModel.id}}</a></td>
+                <td>
+                    <div *ngIf="taxModel.catalog">
+                        <a [routerLink]="['../catalog', taxModel.catalog?.id, 'view' ]" >{{taxModel.catalog?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="taxModel.oIND">
+                        <a [routerLink]="['../ind', taxModel.oIND?.id, 'view' ]" >{{taxModel.oIND?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="taxModel.relatedTaxObject">
+                        <a [routerLink]="['../tax-object', taxModel.relatedTaxObject?.id, 'view' ]" >{{taxModel.relatedTaxObject?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="taxModel.taxModel">
+                        <a [routerLink]="['../tax-model', taxModel.taxModel?.id, 'view' ]" >{{taxModel.taxModel?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/tax-model', taxModel.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/tax-model', taxModel.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'tax-model/'+ taxModel.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

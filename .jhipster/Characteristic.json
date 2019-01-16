@@ -1,0 +1,66 @@
+{
+    "name": "Characteristic",
+    "fields": [
+        {
+            "fieldName": "charID",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "charName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "charType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "defaultValue",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "charClassificationType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sequence",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "assocType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "promoted",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sourceItem",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "charDefaultRule",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mapto",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "item",
+            "otherEntityName": "item",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190116203658",
+    "entityTableName": "characteristic",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,31 @@
+{
+    "catalogValidatorApp": {
+        "infoModelAttr": {
+            "home": {
+                "title": "Info Model Attrs",
+                "createLabel": "Crear nuevo Info Model Attr",
+                "createOrEditLabel": "Crear o editar Info Model Attr",
+                "search": "Search for Info Model Attr"
+            },
+            "created": "Un nuevo Info Model Attr ha sido creado con el identificador {{ param }}",
+            "updated": "Un Info Model Attr ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Info Model Attr ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Info Model Attr {{ id }}?"
+            },
+            "detail": {
+                "title": "Info Model Attr"
+            },
+            "attrCode": "Attr Code",
+            "charType": "Char Type",
+            "name": "Name",
+            "isNull": "Is Null",
+            "isSearch": "Is Search",
+            "descending": "Descending",
+            "type": "Type",
+            "assoctype": "Assoctype",
+            "seq": "Seq",
+            "infoModel": "Info Model"
+        }
+    }
+}

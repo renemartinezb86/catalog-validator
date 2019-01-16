@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="characteristic">
+            <h2><span jhiTranslate="catalogValidatorApp.characteristic.detail.title">Characteristic</span> {{characteristic.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="catalogValidatorApp.characteristic.charID">Char ID</span></dt>
+                <dd>
+                    <span>{{characteristic.charID}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.characteristic.charName">Char Name</span></dt>
+                <dd>
+                    <span>{{characteristic.charName}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.characteristic.charType">Char Type</span></dt>
+                <dd>
+                    <span>{{characteristic.charType}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.characteristic.defaultValue">Default Value</span></dt>
+                <dd>
+                    <span>{{characteristic.defaultValue}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.characteristic.charClassificationType">Char Classification Type</span></dt>
+                <dd>
+                    <span>{{characteristic.charClassificationType}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.characteristic.sequence">Sequence</span></dt>
+                <dd>
+                    <span>{{characteristic.sequence}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.characteristic.assocType">Assoc Type</span></dt>
+                <dd>
+                    <span>{{characteristic.assocType}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.characteristic.promoted">Promoted</span></dt>
+                <dd>
+                    <span>{{characteristic.promoted}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.characteristic.sourceItem">Source Item</span></dt>
+                <dd>
+                    <span>{{characteristic.sourceItem}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.characteristic.charDefaultRule">Char Default Rule</span></dt>
+                <dd>
+                    <span>{{characteristic.charDefaultRule}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.characteristic.mapto">Mapto</span></dt>
+                <dd>
+                    <span>{{characteristic.mapto}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.characteristic.item">Item</span></dt>
+                <dd>
+                    <div *ngIf="characteristic.item">
+                        <a [routerLink]="['/item', characteristic.item?.id, 'view']">{{characteristic.item?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/characteristic', characteristic.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

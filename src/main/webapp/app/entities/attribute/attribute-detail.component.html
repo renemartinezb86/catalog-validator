@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="attribute">
+            <h2><span jhiTranslate="catalogValidatorApp.attribute.detail.title">Attribute</span> {{attribute.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="catalogValidatorApp.attribute.name">Name</span></dt>
+                <dd>
+                    <span>{{attribute.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.attribute.value">Value</span></dt>
+                <dd>
+                    <span>{{attribute.value}}</span>
+                </dd>
+                <dt><span jhiTranslate="catalogValidatorApp.attribute.item">Item</span></dt>
+                <dd>
+                    <div *ngIf="attribute.item">
+                        <a [routerLink]="['/item', attribute.item?.id, 'view']">{{attribute.item?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/attribute', attribute.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
